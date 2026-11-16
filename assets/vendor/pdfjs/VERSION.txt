@@ -1,0 +1,5 @@
+PDF.js / pdfjs-dist 6.5.438
+Source: https://www.npmjs.com/package/pdfjs-dist/v/6.5.438
+Package SHA-256: 7461aefcd27c4ef0dd76f9ca5760f09466eb6b3f934432670c12132e7b3d6faa
+Selected browser distribution, unmodified from the official npm package.
+Main license: Apache-2.0. Support asset licenses are retained beside assets.

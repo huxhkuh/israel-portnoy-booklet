@@ -1,0 +1,7 @@
+{
+  "name": "israel-portnoy-booklet",
+  "version": "1.2.0",
+  "private": true,
+  "description": "דף נחיתה מקומי לחוברת של ישראל פורטנוי",
+  "scripts": { "start": "node server.cjs", "check": "node --check app.js && node --check reader.js && node --check read.mjs && node --check server.cjs" }
+}

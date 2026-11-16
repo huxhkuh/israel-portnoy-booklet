@@ -1,0 +1,4 @@
+Phosphor Icons / @phosphor-icons/core 2.1.1
+Source: https://www.npmjs.com/package/@phosphor-icons/core/v/2.1.1
+Package SHA-256: 313332be6190b724da24107addd781799b48bf76b13963f24501112ffe1baadd
+Regular (outline) icons; original paths in a local SVG symbol sprite.
