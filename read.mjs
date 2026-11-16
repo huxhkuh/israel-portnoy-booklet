@@ -6,14 +6,14 @@ const $ = selector => document.querySelector(selector);
 const ui = {
   contents: $('#read-contents'), toc: $('#read-chapters'), contentsToggle: $('#read-contents-toggle'), backdrop: $('.read-sidebar-backdrop'),
   textMode: $('#read-text-mode'), pdfMode: $('#read-pdf-mode'), textContainer: $('#text-container'), text: $('#read-text'),
-  pdfContainer: $('#pdf-container'), pdfViewer: $('#pdf-viewer'), status: $('#read-status'), statusMessage: $('#read-status-message'),
-  errorActions: $('#read-error-actions'), retry: $('#read-retry'), fallbackText: $('#read-fallback-text'),
+  pdfContainer: $('#pdf-container'), pdfViewer: $('#pdf-viewer'), status: $('#read-status'), statusMessage: $('#read-status-message'), statusDetail: $('#read-status-detail'),
+  errorActions: $('#read-error-actions'), retry: $('#read-retry'), fallbackText: $('#read-fallback-text'), openPdf: $('#read-open-pdf'),
   tools: $('#read-tools'), settingsToggle: $('#read-settings-toggle'), smaller: $('#read-smaller'), larger: $('#read-larger'), scale: $('#read-scale'), fit: $('#read-fit'),
   searchbar: $('#read-searchbar'), search: $('#read-search'), searchToggle: $('#read-search-toggle'), searchCount: $('#read-search-count'), searchPrevious: $('#read-search-previous'), searchNext: $('#read-search-next'),
   pageForm: $('#read-page-form'), page: $('#read-page'), total: $('#read-total'), previous: $('#read-previous'), next: $('#read-next'), progress: $('#read-progress'), description: $('#read-page-description'),
 };
 let manifest, manifestPromise, textReady = false, pdfRuntime, pdfPromise;
-let currentPage = 1, mode = mobile.matches ? 'text' : 'pdf', modeRequest = 0, textSize = 22;
+let currentPage = 1, mode = 'text', modeRequest = 0, textSize = 22;
 let searchTimer, toastTimer, matches = [], matchIndex = -1, lastQuery = '';
 let scrollScheduled = false, ignoreScrollUntil = 0;
 const textSources = new Map();
@@ -28,7 +28,7 @@ function route() {
   const params = new URLSearchParams(location.hash.slice(1));
   return {
     page: params.has('page') ? clampPage(params.get('page')) : readSavedPage(),
-    mode: ['pdf', 'text'].includes(params.get('mode')) ? params.get('mode') : (mobile.matches ? 'text' : 'pdf'),
+    mode: ['pdf', 'text'].includes(params.get('mode')) ? params.get('mode') : 'text',
   };
 }
 function updateAddress() {
@@ -40,6 +40,7 @@ function remember() {
 }
 function setPageState(number) {
   currentPage = clampPage(number);
+  ui.openPdf.href = `${PDF_URL}#page=${currentPage}`;
   ui.page.value = String(currentPage);
   ui.previous.disabled = currentPage === 1;
   ui.next.disabled = currentPage === (manifest?.pageCount || 21);
@@ -59,6 +60,7 @@ function setPageState(number) {
 function loading(message) {
   ui.status.hidden = false;
   ui.statusMessage.textContent = message;
+  ui.statusDetail.hidden = true;
   ui.errorActions.hidden = true;
   ui.status.setAttribute('role', 'status');
   ui.status.setAttribute('aria-busy', 'true');
@@ -67,12 +69,20 @@ function clearStatus() {
   ui.status.hidden = true;
   ui.status.setAttribute('aria-busy', 'false');
 }
-function errorState() {
+function errorState(error) {
   ui.status.hidden = false;
   ui.status.setAttribute('role', 'alert');
   ui.status.setAttribute('aria-busy', 'false');
-  ui.statusMessage.textContent = mode === 'pdf' ? 'לא הצלחנו לפתוח את תצוגת ה־PDF. אפשר לנסות שוב או לעבור לקריאה נוחה.' : 'לא הצלחנו לטעון את החוברת. אפשר לנסות שוב או להוריד את ה־PDF.';
+  const filtered = mode === 'pdf' && error?.status === 418;
+  const unsupported = mode === 'pdf' && error?.code === 'PDF_UNSUPPORTED';
+  ui.statusMessage.textContent = filtered ? 'סינון האינטרנט מונע את פתיחת ה־PDF בתוך האתר.'
+    : unsupported ? 'הדפדפן הזה אינו תומך בתצוגת ה־PDF בתוך האתר.'
+    : mode === 'pdf' ? 'לא הצלחנו לפתוח את תצוגת ה־PDF.' : 'לא הצלחנו לטעון את החוברת. אפשר לנסות שוב או להוריד את ה־PDF.';
+  ui.statusDetail.textContent = filtered ? 'אפשר לפתוח את הקובץ בלשונית חדשה כדי לראות את הודעת הסינון. בינתיים, החוברת המלאה זמינה בקריאה נוחה.'
+    : 'אפשר לפתוח את הקובץ בלשונית חדשה, לנסות שוב או להמשיך לקרוא את החוברת בקריאה נוחה.';
+  ui.statusDetail.hidden = mode !== 'pdf';
   ui.fallbackText.hidden = mode !== 'pdf';
+  ui.openPdf.hidden = mode !== 'pdf';
   ui.errorActions.hidden = false;
 }
 
@@ -182,11 +192,16 @@ async function loadPdf() {
   if (pdfRuntime?.ready) return pdfRuntime;
   if (pdfPromise) return pdfPromise;
   pdfPromise = (async () => {
-    const pdfjs = await import('./assets/vendor/pdfjs/build/pdf.mjs');
+    if (typeof Promise.withResolvers !== 'function') {
+      const error = new Error('PDF viewer is not supported by this browser');
+      error.code = 'PDF_UNSUPPORTED';
+      throw error;
+    }
+    const pdfjs = await import('./assets/vendor/pdfjs/legacy/build/pdf.mjs');
     globalThis.pdfjsLib = pdfjs;
-    pdfjs.GlobalWorkerOptions.workerSrc = new URL('./assets/vendor/pdfjs/build/pdf.worker.mjs', import.meta.url).href;
+    pdfjs.GlobalWorkerOptions.workerSrc = new URL('./assets/vendor/pdfjs/legacy/build/pdf.worker.mjs', import.meta.url).href;
     // Keep the optional renderer worker disabled; normal PDF.js rendering is portable across browsers.
-    const { EventBus, PDFViewer, PDFLinkService, PDFFindController } = await import('./assets/vendor/pdfjs/web/pdf_viewer.mjs');
+    const { EventBus, PDFViewer, PDFLinkService, PDFFindController } = await import('./assets/vendor/pdfjs/legacy/web/pdf_viewer.mjs');
     const eventBus = new EventBus();
     const linkService = new PDFLinkService({ eventBus, externalLinkTarget: 2, externalLinkRel: 'noopener noreferrer' });
     const findController = new PDFFindController({ eventBus, linkService });
@@ -243,6 +258,7 @@ async function setMode(nextMode, page = currentPage, retry = false) {
   ui.pdfContainer.hidden = mode !== 'pdf';
   ui.textContainer.hidden = mode !== 'text';
   ui.fit.hidden = mode !== 'pdf';
+  setPageState(targetPage);
   loading(mode === 'pdf' ? 'פותחים את תצוגת ה־PDF…' : 'פותחים את החוברת לקריאה…');
   closeSearch(false);
   try {
@@ -266,7 +282,7 @@ async function setMode(nextMode, page = currentPage, retry = false) {
       ui.scale.textContent = `${Math.round(runtime.viewer.currentScale * 100)}%`;
     }
     updateZoomButtons();
-  } catch { if (request === modeRequest) errorState(); }
+  } catch (error) { if (request === modeRequest) errorState(error); }
 }
 function goToPage(number) {
   const targetPage = clampPage(number);
