@@ -3,5 +3,5 @@
   "version": "1.2.0",
   "private": true,
   "description": "דף נחיתה מקומי לחוברת של ישראל פורטנוי",
-  "scripts": { "start": "node server.cjs", "check": "node --check app.js && node --check reader.js && node --check read.mjs && node --check server.cjs" }
+  "scripts": { "start": "node server.cjs", "check": "node --check app.js && node --check reader.js && node --check read.mjs && node --check leads-config.js && node --check leads.js && node --check server.cjs", "test": "node --test tests/*.test.cjs", "test:browser": "node tests/leads-form-ui.cjs && node tests/leads-site-ui.cjs" }
 }

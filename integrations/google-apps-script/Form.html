@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base target="_top">
+  <title>פנייה לישראל פורטנוי</title>
+  <style>
+    :root{color-scheme:dark;--green:#063f2e;--paper:#fffdf6;--cream:#f8e9be;--gold:#c8a45f;--ink:#183c2e}
+    *{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--green);color:var(--paper)}body{font:400 18px/1.65 LeadBody,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent;outline-offset:4px}a{color:inherit;text-underline-offset:4px}button{cursor:pointer}button:disabled{cursor:wait;opacity:.65}[hidden]{display:none!important}:focus-visible{outline:2px solid var(--cream)}
+    .lead-root{display:flow-root;padding:5px 3px 15px}.lead-heading{margin:0;font-size:31px;line-height:1.25;font-weight:700;letter-spacing:-.4px}.lead-intro{margin:12px 0 25px;color:#dde6de;font-size:18px}.lead-fields{margin:0;padding:0;border:0;min-width:0}.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:19px 22px}.lead-field{display:flex;flex-direction:column;gap:7px;min-width:0}.lead-field-wide{grid-column:1/-1}.lead-label{font-size:16px;font-weight:700;line-height:1.4}.lead-optional{font-weight:400;color:#d5e0d6;font-size:14px;margin-inline-start:4px}
+    .lead-input{display:block;width:100%;min-height:49px;margin:0;border:1px solid #a8b8a8;border-radius:2px;padding:10px 13px;background:var(--paper);color:var(--ink);font-size:18px;line-height:1.5;color-scheme:light}.lead-input[dir=ltr]{text-align:left}.lead-input::placeholder{color:#6c7b6d;opacity:1}.lead-input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}.lead-input[aria-invalid=true]{border:2px solid #f5b8a5;padding:9px 12px}.lead-input:disabled{opacity:.8}select.lead-input{appearance:none;background-image:none;padding-inline-end:13px}textarea.lead-input{resize:vertical;min-height:108px;max-height:330px}.lead-error{margin:0;font-size:14px;line-height:1.45;color:#ffcfbd}
+    .lead-privacy{margin:22px 0 13px;color:#dce6dc;font-size:14px;line-height:1.75}.lead-privacy a{white-space:nowrap}.lead-consent{display:flex;align-items:flex-start;gap:11px;line-height:1.6;font-size:15px}.lead-consent input{width:20px;height:20px;flex:none;margin:3px 0 0;accent-color:var(--cream)}.lead-consent-row{display:flex;flex-direction:column;gap:7px}.lead-actions{margin-top:23px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}.lead-submit{min-height:54px;min-width:170px;padding:12px 25px;border:1px solid var(--cream);border-radius:2px;background:var(--cream);color:var(--green);font-size:18px;line-height:1.5;font-weight:700}.lead-submit:hover:not(:disabled){background:#fff2ce}.lead-required{margin:0;color:#d5e0d6;font-size:13px}.lead-notice{margin:19px 0 0;line-height:1.7;font-size:16px;padding:14px 16px;border:1px solid #abbf9b;background:#164c37;border-radius:2px;overflow-wrap:anywhere}.lead-notice[data-state=error]{border-color:#d8a58f;background:#344b34;color:#ffe4d5}.lead-notice[data-state=success]{background:#eaf0d9;color:var(--green);border-color:#dce5c9}.lead-gate{margin:15px 0;font-size:16px;color:#e2e8db}.lead-unavailable{font-size:16px;line-height:1.75;margin:15px 0 0}.lead-unavailable a{display:inline-flex;align-items:center;min-height:40px}.lead-honeypot{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+    @media(max-width:440px){body{font-size:17px}.lead-heading{font-size:28px}.lead-intro{font-size:17px;margin-bottom:22px}.lead-grid{grid-template-columns:1fr;gap:17px}.lead-field-wide{grid-column:auto}.lead-input{font-size:17px}.lead-privacy{margin-top:20px}.lead-submit{width:100%;min-height:55px}.lead-actions{gap:10px}.lead-required{font-size:12px}.lead-root{padding-inline:3px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="lead-root" id="lead-root">
+    <h2 class="lead-heading" id="lead-heading">בואו נדבר על הנכס שלכם</h2>
+    <p class="lead-intro" id="lead-intro">השאירו פרטים וישראל יחזור אליכם.</p>
+    <p id="lead-gate" class="lead-gate" role="status">טוענים את הטופס…</p>
+    <form id="lead-form" novalidate aria-label="פנייה לישראל פורטנוי">
+      <fieldset id="lead-fields" class="lead-fields" disabled>
+        <div class="lead-grid">
+          <label class="lead-field" for="lead-full-name"><span class="lead-label">שם מלא <span id="lead-name-required">*</span><span class="lead-optional" id="lead-name-optional" hidden>לא חובה</span></span><input class="lead-input" id="lead-full-name" name="fullName" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="lead-fullName-error"><span class="lead-error" id="lead-fullName-error" hidden></span></label>
+          <label class="lead-field" for="lead-phone"><span class="lead-label">מספר טלפון *</span><input class="lead-input" id="lead-phone" name="phone" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" required maxlength="30" aria-describedby="lead-phone-error"><span class="lead-error" id="lead-phone-error" hidden></span></label>
+          <label class="lead-field" for="lead-email"><span class="lead-label">כתובת מייל <span class="lead-optional" id="lead-email-optional">לא חובה</span><span id="lead-email-required" hidden>*</span></span><input class="lead-input" id="lead-email" name="email" type="email" dir="ltr" autocomplete="email" maxlength="254" aria-describedby="lead-email-error"><span class="lead-error" id="lead-email-error" hidden></span></label>
+          <label class="lead-field" for="lead-service"><span class="lead-label">השירות המבוקש *</span><select class="lead-input" id="lead-service" name="service" required aria-describedby="lead-service-error"><option value="">בחרו סוג שירות</option></select><span class="lead-error" id="lead-service-error" hidden></span></label>
+          <label class="lead-field lead-field-wide" for="lead-message"><span class="lead-label">במה אפשר לעזור? <span class="lead-optional">לא חובה</span></span><textarea class="lead-input" id="lead-message" name="message" rows="3" maxlength="2000" aria-describedby="lead-message-error"></textarea><span class="lead-error" id="lead-message-error" hidden></span></label>
+        </div>
+        <div class="lead-honeypot" aria-hidden="true"><label for="lead-website">אתר אינטרנט</label><input id="lead-website" name="website" type="text" tabindex="-1" autocomplete="off" maxlength="100"></div>
+        <p class="lead-privacy" id="lead-privacy"><span id="lead-privacy-text">הפרטים יועברו לישראל פורטנוי ויישמרו ב־Google Sheets לצורך מענה וטיפול בפנייה בלבד. אין צורך למסור מידע רגיש. לשאלות או לבקשת עיון, תיקון או מחיקה אפשר לפנות אל </span><a href="mailto:ysrael305@gmail.com" target="_blank" rel="noopener noreferrer">ysrael305@gmail.com</a>.</p>
+        <div class="lead-consent-row"><label class="lead-consent" for="lead-consent"><input id="lead-consent" name="consent" type="checkbox" required aria-describedby="lead-privacy lead-consent-error"><span id="lead-consent-label">אני מסכים/ה לשמירת הפרטים וליצירת קשר בנוגע לפנייה.&nbsp;*</span></label><p class="lead-error" id="lead-consent-error" hidden></p></div>
+      </fieldset>
+      <div class="lead-actions"><button id="lead-submit" class="lead-submit" type="submit" disabled>שליחת פנייה</button><p class="lead-required">* שדות חובה</p></div>
+      <p id="lead-status" class="lead-notice" role="status" aria-live="polite" tabindex="-1" hidden></p>
+    </form>
+    <p class="lead-unavailable" id="lead-unavailable" hidden>אפשר ליצור קשר עם ישראל <a href="tel:+972548468822">בטלפון 054-846-8822</a>, <a href="mailto:ysrael305@gmail.com" target="_blank" rel="noopener noreferrer">במייל</a>, או <a id="lead-site-link" target="_blank" rel="noopener noreferrer">דרך האתר</a>.</p>
+  </div>
+  <script>
+    'use strict';
+    const config = <?!= publicConfigJson ?>;
+    (() => {
+      const form = document.getElementById('lead-form');
+      const fields = document.getElementById('lead-fields');
+      const button = document.getElementById('lead-submit');
+      const gate = document.getElementById('lead-gate');
+      const status = document.getElementById('lead-status');
+      const root = document.getElementById('lead-root');
+      const controls = Object.fromEntries(['fullName','phone','email','service','message','consent','website'].map(name => [name, form.elements.namedItem(name)]));
+      const updatesMode = config.mode === 'updates';
+      const allowedFields = updatesMode ? ['fullName','email','consent'] : ['fullName','phone','email','service','message','consent'];
+      const limits = {fullName:80,phone:30,email:254,message:2000};
+      const idleButtonText = updatesMode ? 'אשמח לקבל עדכונים' : 'שליחת פנייה';
+      const unknownMessage = updatesMode ? 'לא התקבל אישור שההרשמה נשמרה. הפרטים נשארו כאן ואפשר לנסות שוב.' : 'לא התקבל אישור שהפנייה נשמרה. הפרטים נשארו כאן ואפשר לנסות שוב.';
+      if (updatesMode) {
+        document.title = 'עדכונים מישראל פורטנוי';
+        root.dataset.mode = 'updates';
+        document.getElementById('lead-heading').textContent = 'נשארים בקשר עם ישראל';
+        document.getElementById('lead-intro').textContent = 'לעוד סיפורים מהשטח, מחשבות ועדכונים מישראל פורטנוי.';
+        if (config.embedded === true) {
+          document.getElementById('lead-heading').hidden = true;
+          document.getElementById('lead-intro').hidden = true;
+        }
+        form.setAttribute('aria-label','הרשמה לעדכונים מישראל פורטנוי');
+        controls.fullName.required = false;
+        document.getElementById('lead-name-required').hidden = true;
+        document.getElementById('lead-name-optional').hidden = false;
+        controls.email.required = true;
+        document.getElementById('lead-email-optional').hidden = true;
+        document.getElementById('lead-email-required').hidden = false;
+        for (const name of ['phone','service','message']) {
+          controls[name].closest('.lead-field').hidden = true;
+          controls[name].required = false;
+          controls[name].disabled = true;
+        }
+        document.getElementById('lead-consent-label').textContent = typeof config.consentText === 'string' && config.consentText ? config.consentText : 'אני מסכים/ה לקבל במייל עדכונים ותוכן מישראל פורטנוי, ולשמירת הפרטים לצורך זה. אפשר לבקש הסרה בכל עת במייל לישראל.';
+        document.getElementById('lead-privacy-text').textContent = 'הפרטים יישמרו לצורך העדכונים בלבד. לבקשת הסרה: ';
+        button.textContent = idleButtonText;
+      }
+      let authorized = false, inFlight = false, pending = null, activeAttempt = null, helloTimer, gateTimer;
+      const startedAt = config.renderedAt;
+      let fillStarted = performance.now();
+      const validSite = (() => {try {const url = new URL(config.siteUrl);return ['https:','http:'].includes(url.protocol) && url.origin === config.siteOrigin ? url : null;} catch {return null;}})();
+      const rpcAvailable = () => typeof window.google?.script?.run?.withSuccessHandler === 'function';
+      const uuid = () => {
+        if (typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+        const bytes = crypto.getRandomValues(new Uint8Array(16));bytes[6] = (bytes[6] & 15) | 64;bytes[8] = (bytes[8] & 63) | 128;
+        const hex = [...bytes].map(value => value.toString(16).padStart(2,'0')).join('');
+        return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+      };
+      let nonce;
+      try {nonce = uuid();} catch {unavailable();return;}
+      function googleWrapperOrigin(value) {
+        try {return new URL(value).origin === 'https://script.google.com';} catch {return false;}
+      }
+      function directlyOpened() {
+        if (window.top === window) return true;
+        const ancestors = Array.from(location.ancestorOrigins || []);
+        if (ancestors.length) return ancestors.length === 1 && ancestors[0] === 'https://script.google.com';
+        return window.parent === window.top && googleWrapperOrigin(document.referrer);
+      }
+      function post(type) {
+        if (!validSite || window.top === window) return;
+        const message = {type,nonce};
+        if (type === 'israel-leads:height' || type === 'israel-leads:ready') message.height = Math.min(2400,Math.max(280,Math.ceil(root.getBoundingClientRect().height)));
+        window.top.postMessage(message,validSite.origin);
+      }
+      function height() {if (authorized) post('israel-leads:height');}
+      function unavailable() {
+        authorized = false;fields.disabled = true;button.disabled = true;
+        gate.hidden = false;gate.textContent = 'הטופס אינו זמין כרגע. אפשר ליצור קשר ישירות עם ישראל.';
+        document.getElementById('lead-unavailable').hidden = false;
+        if (validSite) document.getElementById('lead-site-link').href = validSite.href + '#contact';
+        clearInterval(helloTimer);clearTimeout(gateTimer);
+      }
+      function authorize() {
+        if (!rpcAvailable() || !Number.isSafeInteger(startedAt) || startedAt <= 0) {unavailable();return;}
+        authorized = true;fields.disabled = false;button.disabled = false;gate.hidden = true;
+        clearInterval(helloTimer);clearTimeout(gateTimer);post('israel-leads:ready');height();
+      }
+      addEventListener('message', event => {
+        if (!validSite || event.origin !== validSite.origin || event.source !== window.top || event.data?.type !== 'israel-leads:authorize' || event.data.nonce !== nonce) return;
+        if (!authorized) authorize();
+      });
+      function notice(text, state) {
+        status.textContent = text;status.dataset.state = state;status.setAttribute('role',state === 'error' ? 'alert' : 'status');status.hidden = false;
+        status.focus({preventScroll:true});height();
+      }
+      function clearErrors() {
+        for (const name of allowedFields) {controls[name].removeAttribute('aria-invalid');const error = document.getElementById(`lead-${name}-error`);error.hidden = true;error.textContent = '';}
+      }
+      function fieldErrors(errors) {
+        clearErrors();let first;
+        for (const name of allowedFields) {
+          if (typeof errors?.[name] !== 'string') continue;
+          controls[name].setAttribute('aria-invalid','true');const error = document.getElementById(`lead-${name}-error`);error.textContent = errors[name].slice(0,180);error.hidden = false;first ||= controls[name];
+        }
+        if (first) first.focus();height();return Boolean(first);
+      }
+      function clean(value, multiline = false) {
+        return String(value).normalize('NFC').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]/g,'').replace(multiline ? /\r\n?/g : /[\r\n\t]+/g,multiline ? '\n' : ' ').trim();
+      }
+      function values() {
+        const common = {fullName:clean(controls.fullName.value),email:clean(controls.email.value),consent:controls.consent.checked,website:clean(controls.website.value)};
+        if (updatesMode) return {...common,source:config.source === 'exit' ? 'exit' : 'updates'};
+        return {...common,phone:clean(controls.phone.value),service:controls.service.value,message:clean(controls.message.value,true),source:config.source === 'booklet' ? 'booklet' : 'contact'};
+      }
+      function validate(data) {
+        const errors = {};
+        if ((!updatesMode || data.fullName) && (data.fullName.length < 2 || data.fullName.length > limits.fullName || !/^[\p{L}\p{M}][\p{L}\p{M}\s.'’"״׳\-–]*$/u.test(data.fullName))) errors.fullName = updatesMode ? 'יש להזין שם תקין, בין 2 ל־80 תווים, או להשאיר את השדה ריק.' : 'יש להזין שם מלא, בין 2 ל־80 תווים.';
+        if (updatesMode) {
+          if (!validEmail(data.email)) errors.email = 'יש להזין כתובת מייל תקינה לקבלת העדכונים.';
+          if (!data.consent) errors.consent = 'יש לאשר קבלת עדכונים ושמירת הפרטים לצורך זה.';
+          return errors;
+        }
+        const digits = data.phone.replace(/[\s().-]/g,'');
+        if (data.phone.length > limits.phone || !/^\+?[0-9]{8,15}$/.test(digits)) errors.phone = 'יש להזין מספר טלפון תקין, כולל קידומת.';
+        if (data.email && !validEmail(data.email)) errors.email = 'יש להזין כתובת מייל תקינה או להשאיר את השדה ריק.';
+        if (!Array.isArray(config.services) || !config.services.includes(data.service)) errors.service = 'יש לבחור את השירות המבוקש.';
+        if (data.message.length > limits.message) errors.message = 'אפשר להזין הודעה באורך של עד 2,000 תווים.';
+        if (!data.consent) errors.consent = 'יש לאשר שמירת פרטים ויצירת קשר בנוגע לפנייה.';
+        return errors;
+      }
+      function validEmail(value) {
+        if (typeof value !== 'string' || value.length > 254) return false;
+        const parts = value.split('@');
+        if (parts.length !== 2) return false;
+        const local = parts[0], domain = parts[1];
+        if (!/^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}$/.test(local) || local.charAt(0) === '.' || local.endsWith('.') || local.indexOf('..') !== -1) return false;
+        const labels = domain.split('.');
+        return labels.length >= 2 && labels.every(label => /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?$/.test(label));
+      }
+      function busy(value) {
+        inFlight = value;fields.disabled = value || !authorized;button.disabled = value || !authorized;form.setAttribute('aria-busy',String(value));button.textContent = value ? (updatesMode ? 'שומרים את ההרשמה…' : 'שומרים את הפנייה…') : idleButtonText;
+      }
+      function settle(attempt) {
+        if (activeAttempt !== attempt || !attempt.active) return false;
+        attempt.active = false;clearTimeout(attempt.timer);activeAttempt = null;busy(false);return true;
+      }
+      function failed(attempt, result) {
+        if (!settle(attempt)) return;
+        const messages = updatesMode ? {VALIDATION:'יש לבדוק את פרטי ההרשמה ולנסות שוב.',BUSY:'המערכת עסוקה כרגע. הפרטים נשארו כאן ואפשר לנסות שוב.',RATE_LIMIT:'התקבלו כמה בקשות בזמן קצר. אפשר לנסות שוב מעט מאוחר יותר.',CONFLICT:'לא התקבל אישור להרשמה הזו. אפשר לנסות שוב או ליצור קשר במייל עם ישראל.'} : {VALIDATION:'יש לבדוק את פרטי הפנייה ולנסות שוב.',BUSY:'המערכת עסוקה כרגע. הפרטים נשארו כאן ואפשר לנסות שוב.',RATE_LIMIT:'התקבלו כמה פניות בזמן קצר. אפשר לנסות שוב מעט מאוחר יותר.',CONFLICT:'לא התקבל אישור לפנייה הזו. אפשר ליצור קשר ישירות עם ישראל או לנסות שוב.'};
+        notice(messages[result?.code] || unknownMessage,'error');
+        if (result?.fieldErrors && typeof result.fieldErrors === 'object') fieldErrors(result.fieldErrors);
+        button.textContent = 'ניסיון נוסף';
+      }
+      form.addEventListener('submit', event => {
+        event.preventDefault();if (!authorized || inFlight) return;
+        const data = values();const errors = validate(data);clearErrors();
+        if (Object.keys(errors).length) {status.hidden = true;fieldErrors(errors);return;}
+        if (data.website) {notice(updatesMode ? 'לא הצלחנו לשמור את ההרשמה. אפשר ליצור קשר במייל עם ישראל.' : 'לא הצלחנו לשלוח את הפנייה. אפשר ליצור קשר ישירות עם ישראל.','error');return;}
+        if (!rpcAvailable()) {unavailable();return;}
+        const fingerprint = JSON.stringify(data);
+        if (!pending || pending.fingerprint !== fingerprint) pending = {fingerprint,requestId:uuid()};
+        const payload = {...data,requestId:pending.requestId,startedAt};
+        const attempt = {active:true,requestId:payload.requestId,timer:null};activeAttempt = attempt;busy(true);status.hidden = true;
+        const send = () => {
+          attempt.timer = setTimeout(() => failed(attempt),50000);
+          try {
+            const runner = google.script.run.withSuccessHandler(result => {
+              if (result?.ok !== true || result.saved !== true || result.requestId !== attempt.requestId) {failed(attempt,result);return;}
+              if (!settle(attempt)) return;
+              pending = null;form.reset();clearErrors();fillStarted = performance.now();
+              notice(updatesMode ? 'נרשמתם לעדכונים מישראל. שמחים שתישארו בקשר.' : 'הפנייה נשמרה בהצלחה. ישראל יחזור אליכם בפרטי הקשר שמסרתם.','success');
+              if (updatesMode) post('israel-leads:subscribed');
+            }).withFailureHandler(() => failed(attempt));
+            if (updatesMode) runner.subscribeUpdates(payload);
+            else runner.submitLead(payload);
+          } catch {failed(attempt);}
+        };
+        const remaining = Math.max(0,Math.min(1200,Number(config.minFillMs) || 0) - (performance.now() - fillStarted));
+        if (remaining) setTimeout(send,remaining);else send();
+      });
+      for (const service of Array.isArray(config.services) ? config.services : []) {const option = document.createElement('option');option.value = service;option.textContent = service;controls.service.append(option);}
+      for (const name of Object.keys(limits)) controls[name].maxLength = limits[name];
+      if (validSite) document.getElementById('lead-site-link').href = validSite.href + '#contact';
+      if (typeof ResizeObserver === 'function') new ResizeObserver(height).observe(root);
+      addEventListener('resize',height);
+      if (typeof FontFace === 'function' && validSite) {
+        try {
+          const font = new URL(config.fontUrl);
+          if (font.origin === validSite.origin && font.pathname.endsWith('/body.woff2')) {
+            for (const [weight,url] of [[400,font.href],[700,new URL('bodybold.woff2',font).href]]) {
+              const face = new FontFace('LeadBody',`url("${url}")`,{weight:String(weight),display:'swap'});document.fonts.add(face);face.load().then(height).catch(()=>{});
+            }
+          }
+        } catch { /* The form remains readable with the system font. */ }
+      }
+      if (!validSite) {unavailable();return;}
+      if (directlyOpened()) authorize();
+      else {post('israel-leads:hello');helloTimer = setInterval(()=>post('israel-leads:hello'),800);gateTimer = setTimeout(unavailable,10000);}
+    })();
+  </script>
+</body>
+</html>
