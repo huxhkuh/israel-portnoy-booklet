@@ -2,162 +2,19 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#063f2e">
-  <title>להשקיע בנכס בלי לשקוע | ישראל פורטנוי</title>
-  <meta name="description" content="ארבעה סיפורים מהשטח על שוכרים, תחזוקה וניהול דירה להשקעה. הציצו בחוברת של ישראל פורטנוי והורידו את ה־PDF המלא.">
-  <link rel="icon" href="assets/brand-symbol.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/karantina-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/body.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=design3">
-  <script src="app.js" defer></script>
-  <script src="reader.js" defer></script>
-  <script src="leads-config.js" defer></script>
-  <script src="leads.js" defer></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>החוברת של ישראל פורטנוי</title>
+  <link rel="canonical" href="https://huxhkuh.github.io/israel-portnoy/#booklet">
+  <script>
+    const oldSection = location.hash.slice(1);
+    const sections = {
+      'updates': 'newsletter', 'contact-form-shell': 'newsletter', 'updates-dialog': 'newsletter',
+      'author': 'approach', 'services': 'services', 'contact': 'contact'
+    };
+    const section = Object.hasOwn(sections, oldSection) ? sections[oldSection] : 'booklet';
+    location.replace('https://huxhkuh.github.io/israel-portnoy/#' + section);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=https://huxhkuh.github.io/israel-portnoy/#booklet"></noscript>
 </head>
-<body>
-  <a class="skip-link" href="#main">דילוג לתוכן</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#" aria-label="ישראל פורטנוי — לראש הדף">
-        <svg class="brand-symbol" aria-hidden="true" viewBox="0 0 800 520" fill="none"><g stroke="currentColor" stroke-linejoin="miter"><path d="M375 466V195L655 66V466" stroke-width="14"/><path d="M195 455V351L375 267" stroke-width="10"/><path d="M451 425V250L647 160M550 204V421M452 360L647 295" stroke-width="7"/></g><path d="M44 474H401V435H651V474H756" stroke="#c8a45f" stroke-width="9"/></svg>
-        <span><strong>ישראל פורטנוי</strong><small>נדל״ן | ניהול · ייעוץ · ליווי</small></span>
-      </a>
-      <nav aria-label="ניווט ראשי">
-        <a href="#about">על החוברת</a>
-        <a href="#preview">קריאת החוברת</a>
-        <a href="#services">ניהול וייעוץ</a>
-        <a href="#contact">יצירת קשר</a>
-      </nav>
-      <a class="header-download" href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf" download>הורדת החוברת <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#download"/></svg></a>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">להשקיע בנכס<br><span>בלי לשקוע.</span></h1>
-        <p class="hero-lead">הדירה להשקעה שלכם.<br>אתם יודעים מה באמת קורה בה?</p>
-        <p class="hero-description">ארבעה סיפורים מהשטח על שוכרים, תחזוקה וניהול נכס מרחוק. חוברת מאת <a class="author-inline-link" href="#author">ישראל פורטנוי</a>, על האחריות שנשארת אצל בעלי הבית.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf" download>להורדת החוברת <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#download"/></svg></a>
-          <a class="text-link" data-reader-resume href="read.html"><span data-reader-resume-label>לקריאת החוברת באתר</span></a>
-        </div>
-        <p class="download-note">21 עמודים · לקריאה ולהורדה · ללא הרשמה</p>
-      </div>
-      <div class="hero-visual">
-        <div class="book-halo" aria-hidden="true"></div>
-        <a class="book-button" data-reader-page="1" aria-label="פתיחת החוברת להשקיע בנכס בלי לשקוע בעמוד קריאה מלא" href="read.html#page=1">
-          <span class="book"><img src="assets/cover.webp" alt="כריכת החוברת להשקיע בנכס בלי לשקוע מאת ישראל פורטנוי" width="1000" height="1416" fetchpriority="high"></span>
-        </a>
-      </div>
-    </section>
-
-    <section id="about" class="about about-quote" aria-labelledby="about-title">
-      <div class="container about-inner">
-        <div class="section-intro">
-          <span class="about-quote-mark" aria-hidden="true">“</span>
-          <h2 id="about-title">אפשר להעביר את הניהול.<br><em>האחריות נשארת אצלכם.</em></h2>
-          <div class="about-intro-copy">
-            <p>דירה להשקעה לא חייבת להיות עבודה במשרה מלאה. אבל היא גם לא צריכה להפוך להפתעה.</p>
-            <p>דרך ארבעה סיפורים מהשטח, החוברת מזמינה לעצור, לשאול את השאלות הנכונות ולהישאר מחוברים למה שקורה בנכס.</p>
-          </div>
-        </div>
-        <ol class="chapter-list">
-        <li><a class="chapter-link" data-reader-page="5" href="read.html#page=5"><span class="chapter-number" aria-hidden="true">01</span><div><h3>לדעת מה קורה בנכס</h3><p>מי גר בדירה, מי מחזיק במפתח ומה קורה עם השכירות — גם כשהנכס רחוק.</p><span class="chapter-action">לקריאת הפרק</span></div></a></li>
-        <li><a class="chapter-link" data-reader-page="9" href="read.html#page=9"><span class="chapter-number" aria-hidden="true">02</span><div><h3>להכיר את מי שמקבל את המפתח</h3><p>מה כדאי לשאול לפני שבוחרים שוכרים, ולמה גם מצב הדירה הוא חלק מהסיפור.</p><span class="chapter-action">לקריאת הפרק</span></div></a></li>
-        <li><a class="chapter-link" data-reader-page="13" href="read.html#page=13"><span class="chapter-number" aria-hidden="true">03</span><div><h3>לסמוך, וגם לבקש תיעוד</h3><p>מה סוכם, מה בוצע ומה באמת קיבלתם. לא צריך להיות קבלן כדי להתעניין.</p><span class="chapter-action">לקריאת הפרק</span></div></a></li>
-        <li><a class="chapter-link" data-reader-page="17" href="read.html#page=17"><span class="chapter-number" aria-hidden="true">04</span><div><h3>להכיר גם את השכנים</h3><p>לראות את המציאות בשטח ולהבין מה קורה סביב הדירה שלכם.</p><span class="chapter-action">לקריאת הפרק</span></div></a></li>
-      </ol>
-      </div>
-    </section>
-
-    <section class="story-section" aria-labelledby="story-title">
-      <div class="container story-inner">
-        <div class="story-copy">
-          
-          <h2 id="story-title">שתי יחידות על הנייר.<br><em>אחת בשטח.</em></h2>
-          <p>בעל נכס התקשר לישראל אחרי יותר משנה וחצי שבה התקשה להשכיר דירה שחולקה לשתי יחידות. ישראל הגיע עם המפתח, אבל בשטח מצא רק יחידה אחת.</p>
-          <p>הכניסה לשנייה הייתה חסומה, והשיחה עם השכן גילתה שהיא הפכה לחלק מביתו. איך מתמודדים עם גילוי כזה, ומה חשוב להבין לפני שמחליטים מה לעשות?</p>
-          <a class="text-link" data-reader-page="17" href="read.html#page=17">לסיפור המלא בחוברת</a>
-          <small class="story-source">מבוסס על הסיפור בעמודים <bdi dir="ltr">17–20</bdi></small>
-        </div>
-        <figure class="story-art"><img src="assets/story-neighbor.webp" alt="האיור המקורי מהחוברת: שתי יחידות עם מעבר ביניהן ומפתח" width="900" height="600" loading="lazy" decoding="async"><figcaption>לפעמים צריך להגיע לשטח כדי לראות את התמונה המלאה.</figcaption></figure>
-      </div>
-    </section>
-
-    <section id="preview" class="preview-section" aria-labelledby="preview-title">
-      <div class="container">
-        <div class="preview-heading">
-          <h2 id="preview-title">החוברת.<br><em>בקריאה נוחה.</em></h2>
-          <p>אפשר לקרוא כאן, או לשמור עותק לקריאה אחר כך.<br>כל האפשרויות פתוחות, בלי הרשמה.</p>
-        </div>
-        <div class="reading-options">
-          <a class="reading-option reading-option-primary" data-reader-resume href="read.html">
-            <svg class="icon reading-option-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#book"/></svg>
-            <h3 data-reader-resume-label>קריאת החוברת באתר</h3>
-            <p>טקסט נוח לכל מסך, חיפוש ושמירת מקום הקריאה.</p>
-            <span class="reading-option-action">לפתיחת החוברת</span>
-          </a>
-          <a class="reading-option" href="assets/להשקיע_בנכס_בלי_לשקוע.pdf" download>
-            <svg class="icon reading-option-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#download"/></svg>
-            <h3>הורדת PDF מלא</h3>
-            <p>החוברת בעימוד המקורי, לשמירה במחשב או בטלפון.</p>
-            <span class="reading-option-action">קובץ המקור <bdi dir="ltr">15.3 MB</bdi></span>
-          </a>
-          <a class="reading-option" href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf" download>
-            <svg class="icon reading-option-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#download"/></svg>
-            <h3>הורדת PDF קל</h3>
-            <p>אותה חוברת בקובץ קטן יותר, להורדה מהירה ולשיתוף.</p>
-            <span class="reading-option-action">קובץ קל <bdi dir="ltr">2.83 MB</bdi></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="author" class="author-section container" aria-labelledby="author-title">
-      <div class="author-heading"><h2 id="author-title">ישראל פורטנוי</h2><p class="author-role">ניהול, ייעוץ וליווי</p></div>
-      <div class="author-copy">
-        <p>אני מלווה בעלי נכסים ומשקיעים, בעיקר באזור הצפון. את החוברת הזאת כתבתי מתוך סיפורים שפגשתי בעבודה בשטח ומתוך ניסיון מעשי בניהול דירות.</p>
-        <p>ריכזתי בה שאלות שכדאי לשאול אחרי רכישת דירה להשקעה: מה קורה בנכס, איך מתנהלים מול שוכרים ומה חשוב לברר בעבודות תחזוקה — גם כשהדירה רחוקה מהבית.</p>
-        <a class="text-link" href="#contact">ליצירת קשר עם ישראל</a>
-      </div>
-    </section>
-
-    <section id="services" class="services-section container" aria-labelledby="services-title">
-      <div class="services-heading"><div><h2 id="services-title">ניהול. ייעוץ. ליווי.</h2></div><p>ישראל פורטנוי מלווה בעלי נכסים ומשקיעים,<br> בעיקר באזור הצפון.</p></div>
-      <div class="services-list">
-        <article><h3>ניהול נכסים</h3><p>השכרה, קשר עם שוכרים וענייני תחזוקה — מתוך היכרות עם מה שקורה בנכס.</p><a class="text-link" href="tel:+972548468822">לדבר על ניהול הנכס <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#phone"/></svg></a></article>
-        <article><h3>ייעוץ</h3><p>בירור מצב הנכס ובחינת האפשרויות, כדי לקבל החלטות מתוך הבנה של המציאות בשטח.</p><a class="text-link" href="tel:+972548468822">להתייעץ על הנכס <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#phone"/></svg></a></article>
-        <article><h3>ליווי</h3><p>ליווי בעלי נכסים ומשקיעים בהתמודדות עם השכרה, שוכרים והמציאות בנכס, גם כשהוא רחוק מהבית.</p><a class="text-link" href="tel:+972548468822">לברר על ליווי <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#phone"/></svg></a></article>
-      </div>
-      <p class="services-note">את אופי השירות וההתאמה לנכס שלכם אפשר לברר בשיחה אישית.</p>
-    </section>
-
-    <section id="contact" class="contact-section" aria-labelledby="contact-title">
-      <div class="container contact-inner">
-        <div class="contact-copy"><h2 id="contact-title">מאחורי כל נכס,<br><em>יש בעל בית.</em></h2><p>אני מלווה בעלי נכסים ומשקיעים, בעיקר באזור הצפון.<br>יש לכם שאלה על הנכס שלכם? מוזמנים ליצור קשר.</p></div>
-        <div class="contact-links"><a class="phone-link" href="tel:+972548468822" dir="ltr">054-846-8822 <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#phone"/></svg></a><a class="email-link" href="mailto:ysrael305@gmail.com" dir="ltr">ysrael305@gmail.com <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#email"/></svg></a><a class="button button-light" href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf" download>להורדת החוברת המלאה <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#download"/></svg></a></div>
-        <div id="contact-form-shell" class="contact-form-shell" data-updates-form data-updates-source="updates" hidden>
-          <div class="contact-form-intro" id="updates"><h3>נשארים בקשר עם ישראל.</h3><p>עוד סיפורים מהשטח, מחשבות ועדכונים על עולם הנכסים. אם החוברת עניינה אתכם, נשמח להמשיך לשתף.</p><p class="contact-form-alternative">אפשר גם <a data-lead-form-direct target="_blank" rel="noopener noreferrer">לפתוח את ההרשמה בחלון נפרד</a>.</p></div>
-          <div class="contact-form-frame-wrap"><p class="contact-form-status" data-lead-frame-status role="status">טוענים את ההרשמה לעדכונים…</p><iframe class="contact-form-frame" title="הרשמה לעדכונים מישראל פורטנוי" height="500" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        </div>
-      </div>
-      <p class="updates-confirmation" data-updates-notice role="status" tabindex="-1" hidden></p>
-      <footer class="container site-footer"><span>ישראל פורטנוי <span class="footer-divider">/</span> נדל״ן | ניהול · ייעוץ · ליווי</span><div class="footer-actions"><button class="footer-updates" type="button" data-updates-open>הרשמה לעדכונים</button><a href="#">בחזרה למעלה</a></div></footer>
-    </section>
-  </main>
-  <dialog id="updates-dialog" class="updates-dialog" aria-labelledby="updates-dialog-title" aria-describedby="updates-dialog-description">
-    <button class="updates-dialog-close" type="button" data-updates-close aria-label="סגירת ההרשמה"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#close"/></svg></button>
-    <div class="updates-dialog-copy"><span class="updates-dialog-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 256 256"><use href="assets/icons.svg?v=design3#email"/></svg></span><h2 id="updates-dialog-title">נשמח להישאר בקשר.</h2><p id="updates-dialog-description">אם החוברת עניינה אתכם, אפשר לקבל מישראל עוד סיפורים מהשטח ועדכונים במייל.</p></div>
-    <div class="updates-dialog-form" data-updates-form data-updates-source="exit" hidden>
-      <p class="contact-form-status" data-lead-frame-status role="status">טוענים את ההרשמה לעדכונים…</p>
-      <iframe class="contact-form-frame" title="הרשמה לעדכונים מישראל פורטנוי" height="500" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      <p class="updates-dialog-direct"><a data-lead-form-direct target="_blank" rel="noopener noreferrer">פתיחת ההרשמה בחלון נפרד</a></p>
-    </div>
-    <button class="updates-dialog-later" type="button" data-updates-close>אולי בפעם אחרת</button>
-  </dialog>
-
-</body>
+<body><p><a href="https://huxhkuh.github.io/israel-portnoy/#booklet">לחוברת באתר של ישראל פורטנוי</a></p></body>
 </html>
-

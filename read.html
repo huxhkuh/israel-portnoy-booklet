@@ -3,72 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#063f2e">
-  <title>קריאת החוברת — להשקיע בנכס בלי לשקוע</title>
-  <meta name="description" content="החוברת המלאה של ישראל פורטנוי: קריאת PDF רציפה או טקסט נוח המותאם למסך שלכם.">
-  <link rel="icon" href="assets/brand-symbol.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/body.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/vendor/pdfjs/web/pdf_viewer.css">
-  <link rel="stylesheet" href="read.css?v=design3">
-  <script type="module" src="read.mjs?v=2"></script>
+  <title>קריאת החוברת של ישראל פורטנוי</title>
+  <link rel="canonical" href="https://huxhkuh.github.io/israel-portnoy/read.html">
+  <script>
+    location.replace('https://huxhkuh.github.io/israel-portnoy/read.html' + location.hash);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=https://huxhkuh.github.io/israel-portnoy/read.html"></noscript>
 </head>
-<body>
-  <a class="read-skip" href="#reading-region">דילוג לחוברת</a>
-  <div class="read-app">
-    <header class="read-header">
-      <a class="read-home" href="index.html"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#home"/></svg><span>לאתר של ישראל</span></a>
-      <h1>להשקיע בנכס בלי לשקוע</h1>
-      <a class="read-download" href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf" download aria-label="הורדת החוברת כ־PDF"><span>הורדת PDF</span><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#download"/></svg></a>
-    </header>
-
-    <div class="read-toolbar" aria-label="אפשרויות קריאה">
-      <button id="read-contents-toggle" class="read-button contents-toggle" type="button" aria-controls="read-contents" aria-expanded="true"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#contents"/></svg><span>פרקים</span></button>
-      <div class="read-modes" role="group" aria-label="תצוגת החוברת">
-        <button id="read-text-mode" class="read-mode" type="button" aria-pressed="false"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#text"/></svg><span>קריאה נוחה</span></button>
-        <button id="read-pdf-mode" class="read-mode" type="button" aria-pressed="false"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#pdf"/></svg><span>תצוגת PDF</span></button>
-      </div>
-      <button id="read-search-toggle" class="read-button read-square" type="button" aria-label="חיפוש בחוברת" title="חיפוש בחוברת" aria-controls="read-searchbar" aria-expanded="false"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#search"/></svg></button>
-      <button id="read-settings-toggle" class="read-button read-square" type="button" aria-label="גודל הטקסט וכלי קריאה" title="גודל הטקסט וכלי קריאה" aria-controls="read-tools" aria-expanded="false"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#zoom-in"/></svg></button>
-      <div id="read-tools" class="read-tools">
-        <div class="read-scale-tools" role="group" aria-label="גודל התצוגה">
-          <button id="read-smaller" class="read-button read-square" type="button" aria-label="הקטנת התצוגה" title="הקטנת התצוגה"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#minus"/></svg></button>
-          <output id="read-scale" aria-live="polite" dir="ltr">100%</output>
-          <button id="read-larger" class="read-button read-square" type="button" aria-label="הגדלת התצוגה" title="הגדלת התצוגה"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#plus"/></svg></button>
-          <button id="read-fit" class="read-button read-square" type="button" aria-label="התאמת ה־PDF לרוחב המסך" title="התאמה לרוחב"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#fit"/></svg></button>
-        </div>
-        <button id="read-share" class="read-button" type="button"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#link"/></svg><span>העתקת קישור</span></button>
-      </div>
-    </div>
-
-    <form id="read-searchbar" class="read-searchbar" role="search" hidden>
-      <label class="read-sr" for="read-search">חיפוש בחוברת</label>
-      <input id="read-search" type="search" placeholder="חיפוש בחוברת…" autocomplete="off">
-      <span id="read-search-count" role="status" aria-live="polite"></span>
-      <button id="read-search-previous" class="read-button read-step" type="button" aria-label="תוצאת החיפוש הקודמת">הקודמת</button>
-      <button id="read-search-next" class="read-button read-step" type="submit" aria-label="תוצאת החיפוש הבאה">הבאה</button>
-      <button id="read-search-close" class="read-button read-square" type="button" aria-label="סגירת החיפוש"><svg class="read-icon" viewBox="0 0 256 256" aria-hidden="true"><use href="assets/icons.svg?v=design3#close"/></svg></button>
-    </form>
-
-    <main id="reading-region" class="read-main">
-      <aside id="read-contents" class="read-contents" aria-label="פרקי החוברת"><h2>תוכן עניינים</h2><nav id="read-chapters" aria-label="פרקי החוברת"></nav><p class="read-save-note">מקום הקריאה נשמר בדפדפן שלכם.</p></aside>
-      <button class="read-sidebar-backdrop" type="button" aria-label="סגירת תוכן העניינים" hidden></button>
-      <div class="read-workspace">
-        <div id="read-status" class="read-status" role="status"><span class="read-status-book" aria-hidden="true"></span><p id="read-status-message">פותחים את החוברת…</p><p id="read-status-detail" class="read-status-detail" hidden></p><div id="read-error-actions" hidden><button id="read-fallback-text" class="read-button" type="button">מעבר לקריאה נוחה</button><a id="read-open-pdf" class="read-button" href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf" target="_blank" rel="noopener noreferrer">פתיחת PDF בלשונית חדשה</a><button id="read-retry" class="read-button" type="button">ניסיון נוסף</button><a class="read-button" href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf" download>הורדת PDF</a></div></div>
-        <div id="pdf-container" class="read-scroll read-pdf-scroll" tabindex="0" aria-label="חוברת PDF בגלילה רציפה" dir="ltr" hidden><div id="pdf-viewer" class="pdfViewer"></div></div>
-        <div id="text-container" class="read-scroll read-text-scroll" tabindex="0" aria-label="החוברת בקריאה רציפה" hidden><article id="read-text" class="read-text"></article></div>
-      </div>
-    </main>
-
-    <footer class="read-footer">
-      <button id="read-previous" class="read-button read-step" type="button" aria-label="לעמוד הקודם">קודם</button>
-      <form id="read-page-form" class="read-page-form"><label for="read-page">עמוד</label><input id="read-page" type="number" min="1" max="21" value="1" inputmode="numeric" autocomplete="off"><span>מתוך <b id="read-total">21</b></span><button class="read-page-go" type="submit" aria-label="מעבר לעמוד שנבחר">מעבר</button></form>
-      <button id="read-next" class="read-button read-step" type="button" aria-label="לעמוד הבא">הבא</button>
-      <p id="read-page-description" aria-live="polite"></p>
-      <progress id="read-progress" value="1" max="21" aria-label="התקדמות בחוברת"></progress>
-    </footer>
-    <div id="read-toast" class="read-toast" role="status" aria-live="polite" hidden></div>
-  </div>
-  <dialog id="read-copy-dialog" aria-labelledby="read-copy-title"><h2 id="read-copy-title">קישור למקום שבו אתם קוראים</h2><p>אפשר להעתיק את הכתובת ולפתוח אותה שוב מאותו עמוד.</p><input id="read-copy-url" type="text" readonly dir="ltr" aria-label="כתובת העמוד"><button id="read-copy-close" class="read-button" type="button">סגירה</button></dialog>
-  <noscript><div class="read-noscript"><h1>להשקיע בנכס בלי לשקוע</h1><p>אפשר לקרוא את החוברת המלאה בקובץ ה־PDF.</p><a href="assets/להשקיע_בנכס_בלי_לשקוע_לקריאה.pdf">פתיחת החוברת</a> · <a href="index.html">חזרה לאתר</a></div></noscript>
-</body>
+<body><p><a href="https://huxhkuh.github.io/israel-portnoy/read.html">לקריאת החוברת באתר של ישראל פורטנוי</a></p></body>
 </html>
